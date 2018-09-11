@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ANUDING_SITE.Models.Blog>
+@{
+    ViewBag.Title = "Articles";
+}
+<h1>国家</h1>
+<table class="table">
+    <tr>
+        <th>国家xsaxa代码</th>
+        <th>国家名</th>
+        <th>陆地</th>
+        <th>区域</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.title)</td>
+            <td>@Html.DisplayFor(modelitem => item.dateCreated)</td>
+            <td>@Html.DisplayFor(modelitem => item.idtab_articles)</td>
+            <td>@Html.DisplayFor(modelitem => item.tags)</td>
+        </tr>
+    }
+</table>
