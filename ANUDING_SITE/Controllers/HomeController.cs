@@ -12,7 +12,9 @@ namespace ANUDING_SITE.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            Models.BlogContext context = HttpContext.RequestServices.GetService(typeof(ANUDING_SITE.Models.BlogContext)) as Models.BlogContext;
+            return View(context.GetAllBlog());
+            //return View();
         }
 
         public IActionResult About()
@@ -21,13 +23,7 @@ namespace ANUDING_SITE.Controllers
 
             return View();
         }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+        
 
         public IActionResult Error()
         {

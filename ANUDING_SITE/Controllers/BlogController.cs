@@ -10,6 +10,7 @@ namespace ANUDING_SITE.Controllers
 {
     public class BlogController : Controller
     {
+       
         // GET: /<controller>/
         public IActionResult Articles()
         {
