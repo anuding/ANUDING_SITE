@@ -1,13 +1,19 @@
-﻿@model IEnumerable<ANUDING_SITE.Models.Blog>
+﻿
 @{
-    ViewBag.Title = "Articles";
+foreach (var item in Model)
+{
+    ViewData["Title"] = item.title;
 }
-<h1>@ViewBag.Title</h1>
+}
+
+<h2>@ViewData["Title"]</h2>
 
 
 @foreach (var item in Model)
-{
-    string markdown_string = item.content;
-    string result = Markdig.Markdown.ToHtml(markdown_string);
-    @Html.Raw(result)
-}
+    {
+<hr />
+        string markdown_string = item.content;
+        string result = Markdig.Markdown.ToHtml(markdown_string);
+@Html.Raw(result)
+
+    }

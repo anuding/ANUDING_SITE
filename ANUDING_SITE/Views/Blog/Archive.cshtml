@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ANUDING_SITE.Models.Blog>
+@{
+    ViewBag.Title = "Archive";
+}
+<h1>@ViewBag.Title</h1>
+
+
+@*@foreach (var item in Model)
+    {
+        <hr />
+        string markdown_string = item.content;
+        string result = Markdig.Markdown.ToHtml(markdown_string);
+        @Html.Raw(result)
+
+    }*@
+
+
+@foreach (var item in Model)
+{
+    <hr />
+    string title = item.title;
+    @*string result = Markdig.Markdown.ToHtml(markdown_string);
+    @Html.Raw(result)*@
+    <a href="/Blog/Articles/@item.idtab_articles">@title</a>
+}

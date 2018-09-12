@@ -47,5 +47,40 @@ namespace ANUDING_SITE.Models
             }
             return list;
         }
+
+
+        public List<Blog> GetThatBlog(string id)
+        {
+            List<Blog> list = new List<Blog>();
+            //连接数据库
+            using (MySqlConnection msconnection = GetConnection())
+            {
+                msconnection.Open();
+                //查找数据库里面的表
+                MySqlCommand mscommand = new MySqlCommand("select * from tab_articles", msconnection);
+                using (MySqlDataReader reader = mscommand.ExecuteReader())
+                {
+                    //读取数据
+                    while (reader.Read())
+                    {
+                        if (reader.GetString("idtab_articles") == id)
+                        {
+                            list.Add(new Blog()
+                            {
+                                idtab_articles = reader.GetString("idtab_articles"),
+                                title = reader.GetString("title"),
+                                navimg = "dkwidj",
+                                content = reader.GetString("content"),
+                                tags = reader.GetString("tags"),
+                                dateCreated = reader.GetString("dateCreated")
+                            });
+                            break;
+                        }
+                       
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

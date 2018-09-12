@@ -8,6 +8,7 @@ using ANUDING_SITE.Models;
 
 namespace ANUDING_SITE.Controllers
 {
+    //[Route("/")]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -16,6 +17,14 @@ namespace ANUDING_SITE.Controllers
             return View(context.GetAllBlog());
             //return View();
         }
+        // GET api/values
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+
+        //    return new string[] { "value1", "value2" };
+
+        //}
 
         public IActionResult About()
         {

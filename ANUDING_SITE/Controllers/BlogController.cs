@@ -12,10 +12,19 @@ namespace ANUDING_SITE.Controllers
     {
        
         // GET: /<controller>/
-        public IActionResult Articles()
+        public IActionResult Archive(string id)
+        {
+            if (id == "1")
+                Articles(id);
+            Models.BlogContext context = HttpContext.RequestServices.GetService(typeof(ANUDING_SITE.Models.BlogContext)) as Models.BlogContext;   
+            return View(context.GetAllBlog());
+            //return View();
+        }
+        // GET: /<controller>/
+        public IActionResult Articles(string id)
         {
             Models.BlogContext context = HttpContext.RequestServices.GetService(typeof(ANUDING_SITE.Models.BlogContext)) as Models.BlogContext;
-            return View(context.GetAllBlog());
+            return View(context.GetThatBlog(id));
             //return View();
         }
     }
