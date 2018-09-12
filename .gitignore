@@ -263,3 +263,6 @@ __pycache__/
 # password
 appsettings.json
 appsettings.Development.json
+
+# by mistake
+*.rpm
